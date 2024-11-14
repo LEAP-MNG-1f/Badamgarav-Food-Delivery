@@ -1,7 +1,7 @@
 "use client";
 
-import { API_URL } from "@/constant/constant";
-import { useEffect } from "react";
+// import { API_URL } from "@/constant/constant";
+// import { useEffect } from "react";
 import PrimarySearchAppBar from "./_components/Header";
 
 export default function Home() {
@@ -22,6 +22,7 @@ export default function Home() {
   return (
     <div className="">
       <PrimarySearchAppBar />
+      Test project git branch
     </div>
   );
 }
