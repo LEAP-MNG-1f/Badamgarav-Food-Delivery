@@ -2,7 +2,9 @@
 
 // import { API_URL } from "@/constant/constant";
 // import { useEffect } from "react";
-import PrimarySearchAppBar from "./_components/Header";
+
+import { Cards } from "./_components/Card";
+import { Header } from "./_components/Header";
 
 export default function Home() {
   // const fetchData = async () => {
@@ -19,10 +21,15 @@ export default function Home() {
   //   fetchData();
   // }, []);
 
+  const str: string = "Hello";
+  const number: number = 1000;
+  const bool: boolean = true;
+
   return (
-    <div className="">
-      <PrimarySearchAppBar />
-      Test project git branch
-    </div>
+    <>
+      <Header />
+      <Cards img="Zurag" title="Burger1" price={5500} discount={20} />
+      <Cards img="Zurag" title="Burger2" price={5500} />
+    </>
   );
 }
