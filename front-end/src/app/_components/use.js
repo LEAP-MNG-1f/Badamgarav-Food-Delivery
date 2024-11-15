@@ -14,10 +14,11 @@ import MoreIcon from "@mui/icons-material/MoreVert";
 
 import { LogoIcon } from "./svg/Logo";
 import { Container } from "@mui/material";
+import { Search } from "@mui/icons-material";
 
 export const Header = () => {
   return (
-    <Container sx={{ border: "none", boxShadow: "none" }}>
+    <Container sx={{ maxWidth: "xl" }}>
       <AppBar position="static" sx={{ bgcolor: "white" }}>
         <Toolbar>
           <IconButton
@@ -29,7 +30,7 @@ export const Header = () => {
           >
             <LogoIcon />
           </IconButton>
-          <Typography component="div" sx={{ display: "flex", gap: "10px" }}>
+          <Typography component="div" sx={{ display: "flex", gap: "15px" }}>
             <Typography
               variant="h6"
               noWrap
@@ -56,39 +57,48 @@ export const Header = () => {
             </Typography>
           </Typography>
 
-          {/* <Box sx={{ flexGrow: 1 }} />
-            <Box sx={{ display: { xs: "none", md: "flex" } }}>
-              <IconButton
-                size="large"
-                aria-label="show 4 new mails"
-                color="inherit"
-              >
-                <Badge badgeContent={4} color="error">
-                  <MailIcon />
-                </Badge>
-              </IconButton>
+          <Box sx={{ flexGrow: 1 }} />
+          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+            <IconButton
+              size="large"
+              aria-label="show 4 new mails"
+              color="inherit"
+            >
               <SearchIcon />
+            </IconButton>
 
-              <IconButton
-                size="large"
-                edge="end"
-                aria-label="account of current user"
-                aria-haspopup="true"
-                color="inherit"
-              >
-                <AccountCircle />
-              </IconButton>
-            </Box>
-            <Box sx={{ display: { xs: "flex", md: "none" } }}>
-              <IconButton
-                size="large"
-                aria-label="show more"
-                aria-haspopup="true"
-                color="inherit"
-              >
-                <MoreIcon />
-              </IconButton>
-            </Box> */}
+            {/* <Search>
+            <SearchIconWrappe>
+              <SearchIcon />
+            </SearchIconWrappe>
+            <StyledInputBase
+              placeholder="Search…"
+              inputProps={{ 'aria-label': 'search' }}
+            />
+          </Search> */}
+
+            <SearchIcon />
+
+            <IconButton
+              size="large"
+              edge="end"
+              aria-label="account of current user"
+              aria-haspopup="true"
+              color="inherit"
+            >
+              <AccountCircle />
+            </IconButton>
+          </Box>
+          <Box sx={{ display: { xs: "flex", md: "none" } }}>
+            <IconButton
+              size="large"
+              aria-label="show more"
+              aria-haspopup="true"
+              color="inherit"
+            >
+              <MoreIcon />
+            </IconButton>
+          </Box>
         </Toolbar>
       </AppBar>
     </Container>
