@@ -28,8 +28,8 @@ export default function Home() {
   return (
     <>
       <Header />
-      <Cards img="Zurag" title="Burger1" price={5500} discount={20} />
-      <Cards img="Zurag" title="Burger2" price={5500} />
+      {/* <Cards img="Zurag" title="Burger1" price={5500} discount={20} />
+      <Cards img="Zurag" title="Burger2" price={5500} /> */}
     </>
   );
 }
