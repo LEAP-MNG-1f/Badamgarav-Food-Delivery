@@ -17,8 +17,8 @@ import { Container } from "@mui/material";
 
 export const Header = () => {
   return (
-    <Container sx={{ border: "none", boxShadow: "none" }}>
-      <AppBar position="static" sx={{ bgcolor: "white" }}>
+    <Container className="!flex ">
+      <AppBar className="!flex !container !shadow-none !border-none !bg-white">
         <Toolbar>
           <IconButton
             size="large"
