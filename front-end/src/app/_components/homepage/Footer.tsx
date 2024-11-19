@@ -1,13 +1,13 @@
-import { Facebook } from "./svg/Facecook";
-import { Instagram } from "./svg/Instagram";
-import { LogoWhite } from "./svg/LogoWhite";
-import { Twitter } from "./svg/Twitter";
+import { Facebook } from "../svg/Facecook";
+import { Instagram } from "../svg/Instagram";
+import { LogoWhite } from "../svg/LogoWhite";
+import { Twitter } from "../svg/Twitter";
 
 export const Footer = () => {
   return (
     <div
       style={{
-        background: "url('./HeroBgImage.png'), #18BA51",
+        background: "url('./HeroBg.png'), #18BA51",
       }}
       className="w-full h-[545px] flex justify-center"
     >
