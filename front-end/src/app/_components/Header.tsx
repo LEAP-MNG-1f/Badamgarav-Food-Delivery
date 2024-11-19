@@ -1,96 +1,50 @@
 import * as React from "react";
-
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import Badge from "@mui/material/Badge";
-import SearchIcon from "@mui/icons-material/Search";
-import AccountCircle from "@mui/icons-material/AccountCircle";
-import MailIcon from "@mui/icons-material/Mail";
+import Container from "@mui/material/Container";
+import Button from "@mui/material/Button";
 
-import MoreIcon from "@mui/icons-material/MoreVert";
+import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 
+import { BoxIcon } from "./svg/Box";
 import { LogoIcon } from "./svg/Logo";
-import { Container } from "@mui/material";
 
-export const Header = () => {
+const pages = ["Нүүр", "Хоолны цэс", "Хүргэлтийн бүс"];
+
+function Header() {
   return (
-    <Container className="!flex ">
-      <AppBar className="!flex !container !shadow-none !border-none !bg-white">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <LogoIcon />
-          </IconButton>
-          <Typography component="div" sx={{ display: "flex", gap: "10px" }}>
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              sx={{ display: { xs: "none", sm: "block", color: "black" } }}
-            >
-              НҮҮР
-            </Typography>
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              sx={{ display: { xs: "none", sm: "block", color: "black" } }}
-            >
-              ХООЛНЫ ЦЭС
-            </Typography>
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              sx={{ display: { xs: "none", sm: "block", color: "black" } }}
-            >
-              ХҮРГЭЛТИЙН БҮС
-            </Typography>
-          </Typography>
-
-          {/* <Box sx={{ flexGrow: 1 }} />
-            <Box sx={{ display: { xs: "none", md: "flex" } }}>
-              <IconButton
-                size="large"
-                aria-label="show 4 new mails"
-                color="inherit"
+    <AppBar className="!bg-white !h-[57px] !flex !items-center !justify-center !shadow-none !w-full">
+      <Container className="!w-[1200px] !flex !items-center !justify-between !p-0">
+        <div className="!flex !gap-[24px]">
+          <LogoIcon />
+          <div className="!flex !gap-[8px] ">
+            {pages.map((page) => (
+              <Button
+                key={page}
+                className="!text-[14px] !leading-[16px] !font-[700] !text-black !px-4 !py-2"
               >
-                <Badge badgeContent={4} color="error">
-                  <MailIcon />
-                </Badge>
-              </IconButton>
-              <SearchIcon />
-
-              <IconButton
-                size="large"
-                edge="end"
-                aria-label="account of current user"
-                aria-haspopup="true"
-                color="inherit"
-              >
-                <AccountCircle />
-              </IconButton>
-            </Box>
-            <Box sx={{ display: { xs: "flex", md: "none" } }}>
-              <IconButton
-                size="large"
-                aria-label="show more"
-                aria-haspopup="true"
-                color="inherit"
-              >
-                <MoreIcon />
-              </IconButton>
-            </Box> */}
-        </Toolbar>
-      </AppBar>
-    </Container>
+                {page}
+              </Button>
+            ))}
+          </div>
+        </div>
+        <div className="!flex !gap-2">
+          <Button className="!flex !gap-[8px] !justify-center !items-center !px-4 !py-2">
+            <BoxIcon />
+            <Typography className="!text-[14px] !leading-[20px] !font-[700] !text-black !text-align">
+              Сагс
+            </Typography>
+          </Button>
+          <Button className="!flex !gap-[8px] !justify-center !items-center !px-4 !py-2">
+            <PermIdentityIcon sx={{ color: "text.primary" }} />
+            <Typography className="!text-[14px] !leading-[20px] !font-[700] !text-black !text-align">
+              Нэвтрэх
+            </Typography>
+          </Button>
+        </div>
+      </Container>
+    </AppBar>
   );
-};
+}
+export default Header;
