@@ -10,7 +10,11 @@ server.use(cors());
 
 server.post("/image-upload", async (request, response) => {
   try {
-    cloudinary.config(process.env.CLOUDINARY_URL);
+    cloudinary.config({
+      cloud_name: "djrszvzpu",
+      api_key: "187732991969241",
+      api_secret: "ImnvJw9FkaRfoic5cxoPliWxWMQ", // Click 'View API Keys' above to copy your API secret
+    });
     const uploadResult = await cloudinary.uploader.upload("./assets/Egg.png");
     console.log(uploadResult);
   } catch (error) {
@@ -19,13 +23,9 @@ server.post("/image-upload", async (request, response) => {
 });
 
 server.get("/", (request, response) => {
-  response.send("Hello world");
+  response.send(["Hello world", "Badamaa"]);
 });
 
 server.listen(PORT, () => {
   console.log(`http://localhost:${PORT} server ajillaj bna`);
 });
-
-// cloud_name: "djrszvzpu",
-// api_key: "187732991969241",
-// api_secret: "ImnvJw9FkaRfoic5cxoPliWxWMQ", // Click 'View API Keys' above to copy your API secret
