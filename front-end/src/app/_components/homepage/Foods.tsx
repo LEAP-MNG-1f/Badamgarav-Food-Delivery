@@ -3,18 +3,18 @@ import { NextIcon } from "../svg/Next";
 import { PlusIcon } from "../svg/PlusIcon";
 
 export type FoodType = {
-  _id: string;
+  _id?: string;
   name: string;
-  image: string;
-  ingredient: string;
+  image?: string;
+  ingredient?: string;
   price: number;
 };
 
-export type MealCategoryProps = {
+export type CardListProps = {
   foods: FoodType[];
 };
 
-export const MealCategory = (props: MealCategoryProps) => {
+export const FoodHomePage = (props: CardListProps) => {
   return (
     <div className="w-full flex justify-center mb-[80px]">
       <div className="w-[1200px] flex flex-col gap-[80px]">
@@ -38,6 +38,7 @@ export const MealCategory = (props: MealCategoryProps) => {
               return (
                 <CardList
                   key={food._id}
+                  image={food.image}
                   name={food.name}
                   price={food.price}
                   ingredient={food.ingredient}
@@ -66,7 +67,7 @@ export const MealCategory = (props: MealCategoryProps) => {
               return (
                 <CardList
                   key={food._id}
-                  img_url={food.image}
+                  image={food.image}
                   name={food.name}
                   price={food.price}
                   ingredient={food.ingredient}
@@ -95,7 +96,7 @@ export const MealCategory = (props: MealCategoryProps) => {
               return (
                 <CardList
                   key={food._id}
-                  img_url={food.image}
+                  image={food.image}
                   name={food.name}
                   price={food.price}
                   ingredient={food.ingredient}
@@ -122,7 +123,7 @@ export const MealCategory = (props: MealCategoryProps) => {
               return (
                 <CardList
                   key={food._id}
-                  img_url={food.image}
+                  image={food.image}
                   name={food.name}
                   price={food.price}
                   ingredient={food.ingredient}

@@ -1,18 +1,9 @@
-import {
-  Card,
-  CardActionArea,
-  CardContent,
-  CardMedia,
-  Typography,
-} from "@mui/material";
-
-import * as React from "react";
 import Button from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
 import Dialog from "@mui/material/Dialog";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
-
+import { useState } from "react";
 import { AddIcon } from "../svg/AddIcon";
 import { MinusIcon } from "../svg/MinusIcon";
 
@@ -38,7 +29,7 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 }));
 
 export const CardList = (props: CardListProps) => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -48,11 +39,11 @@ export const CardList = (props: CardListProps) => {
   };
 
   return (
-    <div>
-      {props.foods.map((food, index) => {
-        return (
-          <div key={index}>
-            <div>
+    <div className="!w-full flex justify-center item-center mb-[120px]">
+      <div className="container grid grid-cols-4  gap-4">
+        {props.foods.map((food, index) => {
+          return (
+            <div key={index} className="!w-[282px] !h-[256px]">
               <Button
                 variant="outlined"
                 onClick={handleClickOpen}
@@ -120,6 +111,7 @@ export const CardList = (props: CardListProps) => {
                         <button>
                           <MinusIcon />
                         </button>
+                        <p>-</p>
                         <button>
                           <AddIcon />
                         </button>
@@ -132,9 +124,9 @@ export const CardList = (props: CardListProps) => {
                 </div>
               </BootstrapDialog>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 };

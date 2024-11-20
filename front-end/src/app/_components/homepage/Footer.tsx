@@ -11,7 +11,7 @@ export const Footer = () => {
       }}
       className="w-full h-[545px] flex justify-center"
     >
-      <div className="w-[1200px] flex flex-col items-center justify-center gap-[40px]">
+      <div className="container flex flex-col items-center justify-center gap-[40px]">
         <div className="flex gap-2">
           <LogoWhite />
           <p className="flex items-center text-[20px] font-[700] leading-[30px] text-white">

@@ -23,7 +23,7 @@ export default function FastDelivery() {
       className="!w-full !flex !justify-center mt-[120px] mb-[120px]"
       direction="row"
     >
-      <Box className="!w-[1200px] !flex !justify-between">
+      <Box className="!container !flex !justify-between">
         <FastPaper
           className="!flex !flex-col !justify-center !gap-[15px]"
           square

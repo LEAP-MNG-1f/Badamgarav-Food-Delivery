@@ -1,14 +1,8 @@
-// import * as React from "react";
 "use client";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import CardActionArea from "@mui/material/CardActionArea";
-import { Stack } from "@mui/material";
+
 import { CardList } from "../lesson/CardList";
 
-export const foodMockData: FoodType[] = [
+export const foods: FoodType[] = [
   {
     _id: "1",
     name: "Өглөөний хоол",
@@ -124,7 +118,7 @@ export const foodMockData: FoodType[] = [
 ];
 
 export default function ActionMealCard() {
-  return <CardList foods={foodMockData} />;
+  return <CardList foods={foods} />;
 }
 
 // <Card sx={{ maxWidth: 345 }}>
