@@ -4,7 +4,8 @@ import FastDelivery from "../homepage/FastDelivery";
 import { Footer } from "../homepage/Footer";
 import Header from "../homepage/Header";
 import Hero from "../homepage/Hero";
-import ActionMealCard from "../homepage/Meals";
+import { MealCategory } from "../homepage/MealCategory";
+import ActionMealCard, { foodMockData } from "../homepage/Meals";
 
 export default function HomePage() {
   return (
@@ -12,7 +13,8 @@ export default function HomePage() {
       <Header />
       <Hero />
       <FastDelivery />
-      <ActionMealCard />
+      <MealCategory foods={foodMockData} />
+      {/* <ActionMealCard /> */}
       <Footer />
     </>
   );
