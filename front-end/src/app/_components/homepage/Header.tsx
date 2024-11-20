@@ -13,7 +13,7 @@ import { LogoIcon } from "../svg/Logo";
 function Header() {
   return (
     <AppBar className="!bg-white !h-[57px] !flex !items-center !justify-center !shadow-none !w-full">
-      <Container className="!w-[1200px] !flex !items-center !justify-between !p-0">
+      <Container className="!container !flex !items-center !justify-between !p-0">
         <div className="!flex !gap-[24px]">
           <LogoIcon />
           <div className="!flex !gap-[8px] ">
