@@ -1,12 +1,26 @@
-import express from "express";
+import express, { response } from "express";
 import cors from "cors";
 import { v2 as cloudinary } from "cloudinary";
 import { configDotenv } from "dotenv";
+import connectDb from "./connectDB.js";
 
 const server = express();
 const PORT = 8000;
 
 server.use(cors());
+
+server.get("/", async (req, response) => {
+  const db = await connectDb();
+
+  let collection = db.collection("movies");
+  let results = await collection.find().limit(10).toArray();
+
+  console.log(results);
+  response.json({
+    success: true,
+    date: results,
+  });
+});
 
 server.post("/image-upload", async (request, response) => {
   try {
