@@ -1,13 +1,13 @@
 "use client";
 
-import LessonPage from "./_components/lesson/Lesson";
-import HomePage from "./_components/pages/HomePage";
+import HomePage from "../pages/HomePage";
+import MenuPage from "../pages/MenuPage";
 
 export default function Home() {
   return (
     <>
       <HomePage />
-      {/* <LessonPage /> */}
+      {/* <MenuPage /> */}
     </>
   );
 }
