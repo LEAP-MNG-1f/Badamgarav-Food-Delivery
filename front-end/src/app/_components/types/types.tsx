@@ -124,6 +124,34 @@ export const desserts = [
 
 export const menuFoods = [
   {
+    _id: "1",
+    name: "Өглөөний хоол",
+    price: 14800,
+    image: "./1Egg.png",
+    ingredient: "Beef Patty, Cheese, Lettuce, Tomato, Bun",
+  },
+  {
+    _id: "2",
+    name: "Зайрмаг",
+    price: 4800,
+    image: "./2IceCream.png",
+    ingredient: "Tomato Sauce, Mozzarella, Basil, Olive Oil",
+  },
+  {
+    _id: "3",
+    name: "Өглөөний хоол",
+    price: 24800,
+    image: "./3Fruits.png",
+    ingredient: "Chicken, Romaine Lettuce, Croutons, Parmesan, Caesar Dressing",
+  },
+  {
+    _id: "4",
+    name: "Breakfast",
+    price: 24800,
+    image: "./4Vandui.png",
+    ingredient: "Spaghetti, Ground Beef, Tomato Sauce, Onion, Garlic",
+  },
+  {
     _id: "5",
     name: "Main Pizza ",
     price: 34800,
