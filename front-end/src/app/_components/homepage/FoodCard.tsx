@@ -17,9 +17,15 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     padding: theme.spacing(1),
   },
 }));
+type Card = {
+  _id: string;
+  quantity: number;
+};
 
 export const FoodCard = ({ image, name, price, ingredient }: FoodType) => {
   const [open, setOpen] = useState(false);
+  const [quantity, setQuantity] = useState(0);
+  const [cards, setCards] = useState([]);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -27,6 +33,63 @@ export const FoodCard = ({ image, name, price, ingredient }: FoodType) => {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const addCard = ({ name, quantity }) => {
+    let insertItem = { name, quantity };
+    setCards((prev) => [...prev, insertItem]);
+  };
+  console.log(cards);
+
+  // const addCard = (id, name, description, price) => {
+  //   const card = { id, name, description, price, count: 1 };
+
+  //   setCards((prevItems) => {
+  //     const isExists = prevItems.find((item) => item.id === id);
+
+  //     if (isExists) {
+  //       return prevItems.map((item) => {
+  //         if (item.id === id) {
+  //           return {
+  //             ...item,
+  //             count: item.count + 1,
+  //           };
+  //         }
+  //         return item;
+  //       });
+  //     }
+  //     return [...prevItems, card];
+  //   });
+  // };
+
+  // console.log(cards);
+
+  // const handleDecrease = (id) => {
+  //   setCards((prevCardItems) => {
+  //     return prevCardItems.map((item) => {
+  //       if (item.id == id) {
+  //         return {
+  //           ...item,
+  //           count: item.count - 1,
+  //         };
+  //       }
+  //       return item;
+  //     });
+  //   });
+  // };
+  // const handleIncrease = (id) => {
+  //   setCards((prevCardItems) => {
+  //     return prevCardItems.map((item) => {
+  //       if (item.id == id) {
+  //         return {
+  //           ...item,
+  //           count: item.count + 1,
+  //         };
+  //       }
+  //       return item;
+  //     });
+  //   });
+  // };
+
   return (
     <div>
       <Button
@@ -89,14 +152,24 @@ export const FoodCard = ({ image, name, price, ingredient }: FoodType) => {
 
               <p className="text-[18px] font-[600] leading-[27px]">Тоо</p>
               <div className="flex justify-between">
-                <button>
+                <button onClick={() => handleDecrease(_id)}>
                   <MinusIcon />
                 </button>
-                <button>
+                <div>{quantity}</div>
+                <button
+                  onClick={() => {
+                    handleIncrease(_id);
+                  }}
+                >
                   <AddIcon />
                 </button>
               </div>
-              <button className="w-full h-[48px] bg-[#18BA51] py-2 px-4 text-[16px] font-[400] leading-[19.09px] rounded-[4px] text-white text-center">
+              <button
+                className="w-full h-[48px] bg-[#18BA51] py-2 px-4 text-[16px] font-[400] leading-[19.09px] rounded-[4px] text-white text-center"
+                onClick={() => {
+                  addCard({ name });
+                }}
+              >
                 Сагслах
               </button>
             </div>

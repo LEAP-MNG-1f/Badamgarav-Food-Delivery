@@ -9,6 +9,7 @@ import Hero from "../app/_components/homepage/Hero";
 import {
   desserts,
   mainFoods,
+  menuFoods,
   morningFoods,
   salads,
 } from "../app/_components/types/types";
@@ -19,7 +20,7 @@ import { DessertPage } from "../app/_components/homepage/foods/Dessert";
 export default function HomePage() {
   return (
     <>
-      <Header />
+      <Header foods={menuFoods} />
       <Hero />
       <FastDelivery />
       <MorningFoodsPage foods={morningFoods} />
