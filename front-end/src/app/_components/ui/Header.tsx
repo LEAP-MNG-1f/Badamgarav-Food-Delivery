@@ -61,9 +61,7 @@ function Header({ foods }: CardListProps) {
         <div className="!flex !gap-2">
           <Button className="!flex !gap-[8px] !justify-center !items-center !px-4 !py-2">
             <BoxIcon />
-            {/* <Typography className="!text-[14px] !leading-[20px] !font-[700] !text-black !text-align">
-              Сагс
-            </Typography> */}
+
             <RightDrawer foods={menuFoods} />
           </Button>
           <Button className="!flex !gap-[8px] !justify-center !items-center !px-4 !py-2">
