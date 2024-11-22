@@ -24,7 +24,7 @@ type Card = {
 
 export const FoodCard = ({ image, name, price, ingredient }: FoodType) => {
   const [open, setOpen] = useState(false);
-  const [quantity, setQuantity] = useState(0);
+  const [count, setCount] = useState<number>(0);
   const [cards, setCards] = useState([]);
 
   const handleClickOpen = () => {
@@ -34,61 +34,23 @@ export const FoodCard = ({ image, name, price, ingredient }: FoodType) => {
     setOpen(false);
   };
 
-  const addCard = ({ name, quantity }) => {
-    let insertItem = { name, quantity };
+  const increment = () => setCount(count + 1);
+  const decrement = () => setCount(count - 1);
+
+  const addCard = ({ image, name, price, ingredient }: FoodType) => {
+    let insertItem = { image, name, price, ingredient };
     setCards((prev) => [...prev, insertItem]);
   };
+
   console.log(cards);
 
-  // const addCard = (id, name, description, price) => {
-  //   const card = { id, name, description, price, count: 1 };
+  const [username, setUsername] = useState<string>("");
 
-  //   setCards((prevItems) => {
-  //     const isExists = prevItems.find((item) => item.id === id);
-
-  //     if (isExists) {
-  //       return prevItems.map((item) => {
-  //         if (item.id === id) {
-  //           return {
-  //             ...item,
-  //             count: item.count + 1,
-  //           };
-  //         }
-  //         return item;
-  //       });
-  //     }
-  //     return [...prevItems, card];
-  //   });
-  // };
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+    event.preventDefault();
+  };
 
   // console.log(cards);
-
-  // const handleDecrease = (id) => {
-  //   setCards((prevCardItems) => {
-  //     return prevCardItems.map((item) => {
-  //       if (item.id == id) {
-  //         return {
-  //           ...item,
-  //           count: item.count - 1,
-  //         };
-  //       }
-  //       return item;
-  //     });
-  //   });
-  // };
-  // const handleIncrease = (id) => {
-  //   setCards((prevCardItems) => {
-  //     return prevCardItems.map((item) => {
-  //       if (item.id == id) {
-  //         return {
-  //           ...item,
-  //           count: item.count + 1,
-  //         };
-  //       }
-  //       return item;
-  //     });
-  //   });
-  // };
 
   return (
     <div>
@@ -121,7 +83,6 @@ export const FoodCard = ({ image, name, price, ingredient }: FoodType) => {
         }}
         fullWidth={true}
         onClose={handleClose}
-        // aria-labelledby="customized-dialog-title"
         open={open}
       >
         <div className="!w-[981px] h-[564px] flex gap-[33px] !rounded-[16px] p-8">
@@ -152,26 +113,37 @@ export const FoodCard = ({ image, name, price, ingredient }: FoodType) => {
 
               <p className="text-[18px] font-[600] leading-[27px]">Тоо</p>
               <div className="flex justify-between">
-                <button onClick={() => handleDecrease(_id)}>
+                <button onClick={decrement}>
                   <MinusIcon />
                 </button>
-                <div>{quantity}</div>
-                <button
-                  onClick={() => {
-                    handleIncrease(_id);
-                  }}
-                >
+
+                <p className="p-2 text-[18px] "> {count}</p>
+                <button onClick={increment}>
                   <AddIcon />
                 </button>
               </div>
-              <button
-                className="w-full h-[48px] bg-[#18BA51] py-2 px-4 text-[16px] font-[400] leading-[19.09px] rounded-[4px] text-white text-center"
-                onClick={() => {
-                  addCard({ name });
-                }}
-              >
-                Сагслах
-              </button>
+              <form onSubmit={handleSubmit}>
+                <input
+                  type="text"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  placeholder="Enter your name"
+                  required
+                />
+                <button type="submit">Submit</button>
+              </form>
+
+              <form onSubmit={handleSubmit}>
+                <button
+                  type="submit"
+                  className="w-full h-[48px] bg-[#18BA51] py-2 px-4 text-[16px] font-[400] leading-[19.09px] rounded-[4px] text-white text-center"
+                  onClick={() => {
+                    addCard({ image, name, price, ingredient });
+                  }}
+                >
+                  Сагслах
+                </button>
+              </form>
             </div>
           </div>
         </div>
