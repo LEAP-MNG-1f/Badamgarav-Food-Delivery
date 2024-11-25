@@ -122,7 +122,7 @@ export const FoodCard = ({ image, name, price, ingredient }: FoodType) => {
                   <AddIcon />
                 </button>
               </div>
-              <form onSubmit={handleSubmit}>
+              {/* <form onSubmit={handleSubmit}>
                 <input
                   type="text"
                   value={username}
@@ -131,7 +131,7 @@ export const FoodCard = ({ image, name, price, ingredient }: FoodType) => {
                   required
                 />
                 <button type="submit">Submit</button>
-              </form>
+              </form> */}
 
               <form onSubmit={handleSubmit}>
                 <button
