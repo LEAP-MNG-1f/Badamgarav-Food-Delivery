@@ -1,7 +1,7 @@
 import express, { response } from "express";
 import cors from "cors";
 import mongoose from "mongoose";
-import animeModel from "./model/anime.js";
+import animeModel from "./anime.js";
 
 mongoose.connect(
   "mongodb+srv://ace12d192:wap3TZLOZeJlgLIq@cluster0.s6jvj.mongodb.net/product"

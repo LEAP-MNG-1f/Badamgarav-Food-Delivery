@@ -2,7 +2,7 @@ import { request, response } from "express";
 import { User } from "../model/user.js";
 
 const createUser = async (request, response) => {
-  const result = User.create({
+  const result = await User.create({
     name: "Badamaa",
     email: "Badam@gmail.com",
     password: "badamtest",
@@ -15,7 +15,7 @@ const createUser = async (request, response) => {
 };
 
 const getAllUser = async (request, response) => {
-  const result = User.find();
+  const result = await User.find();
   response.json({
     success: true,
     data: result,

@@ -1,10 +1,11 @@
-import Drawer from "@mui/material/Drawer";
+"use client";
 
-import React, { useState } from "react";
+import Drawer from "@mui/material/Drawer";
 
 import { OrderCard } from "./OrderCard";
 import { LeftIcon } from "../svg/LeftIcon";
 import { CardListProps } from "../homepage/foods/AllFoods";
+import React, { useState } from "react";
 
 type Anchor = "right";
 
