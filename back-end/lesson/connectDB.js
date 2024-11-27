@@ -1,7 +1,7 @@
 import { MongoClient } from "mongodb";
 
 const connectionString =
-  "mongodb+srv://ace12d192:wap3TZLOZeJlgLIq@cluster0.s6jvj.mongodb.net/";
+  "mongodb+srv://badamaa312:uZuDbfFT9UrqWqE7@cluster0.i47sl.mongodb.net/";
 
 const connectDb = async () => {
   const client = new MongoClient(connectionString); //Tanoulj bui heseg
@@ -9,7 +9,7 @@ const connectDb = async () => {
   try {
     connection = await client.connect(); //TUHAIN clustertai holbogdoj bna
   } catch (error) {
-    console.error("failed to connetc db");
+    console.error("failed to connect db");
   }
   let db = connection.db("sample_mflix"); //DB ruu holbogdoj bna
   return db;
@@ -17,4 +17,6 @@ const connectDb = async () => {
 
 export default connectDb;
 
-// ("mongodb+srv://badamaa312:uZuDbfFT9UrqWqE7@cluster0.i47sl.mongodb.net/");
+// ();
+
+// ("mongodb+srv://ace12d192:wap3TZLOZeJlgLIq@cluster0.s6jvj.mongodb.net/");

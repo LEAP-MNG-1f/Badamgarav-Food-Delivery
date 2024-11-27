@@ -13,7 +13,7 @@ import RightDrawer from "../order/RightDrawer";
 import { menuFoods } from "../types/types";
 import { CardListProps } from "../homepage/foods/MorningFoods";
 
-function Header({ foods }: CardListProps) {
+function Header() {
   const preventDefault = (event: React.SyntheticEvent) =>
     event.preventDefault();
   return (
@@ -53,15 +53,27 @@ function Header({ foods }: CardListProps) {
                 </Button>
               </Link>
             </Box>
-            <Button className="!text-[14px] !leading-[16px] !font-[700] !text-black !px-4 !py-2">
-              Хүргэлтийн бүс
-            </Button>
+
+            <Box
+              sx={{
+                typography: "body1",
+                "& > :not(style) ~ :not(style)": {
+                  ml: 2,
+                },
+              }}
+              onClick={preventDefault}
+            >
+              <Link href="./delivery">
+                <Button className="!text-[14px] !leading-[16px] !font-[700] !text-black !px-4 !py-2">
+                  Хүргэлтийн бүс
+                </Button>
+              </Link>
+            </Box>
           </div>
         </div>
         <div className="!flex !gap-2">
           <Button className="!flex !gap-[8px] !justify-center !items-center !px-4 !py-2">
             <BoxIcon />
-
             <RightDrawer foods={menuFoods} />
           </Button>
           <Button className="!flex !gap-[8px] !justify-center !items-center !px-4 !py-2">
