@@ -42,7 +42,7 @@ export const FoodCard = ({ image, name, price, ingredient }: FoodType) => {
     setCards((prev) => [...prev, insertItem]);
   };
 
-  console.log(cards);
+  // console.log(cards);
 
   const [username, setUsername] = useState<string>("");
 
