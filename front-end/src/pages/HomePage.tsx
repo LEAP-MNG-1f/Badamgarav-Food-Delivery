@@ -16,11 +16,13 @@ import {
 import { MainFoodsPage } from "../app/_components/homepage/foods/MainFoods";
 import { SaladsPage } from "../app/_components/homepage/foods/Salads";
 import { DessertPage } from "../app/_components/homepage/foods/Dessert";
+import { HomeFoods } from "@/app/_components/homepage/HomeFoods";
 
 export default function HomePage() {
   return (
     <>
       <Header foods={menuFoods} />
+      <HomeFoods />
       <Hero />
       <FastDelivery />
       <MorningFoodsPage foods={morningFoods} />

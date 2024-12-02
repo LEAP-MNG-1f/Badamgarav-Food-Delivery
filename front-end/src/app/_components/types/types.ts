@@ -1,3 +1,21 @@
+export type FoodType = {
+  _id: string;
+  image?: string;
+  ingeredient?: string;
+  name: string;
+  price: number;
+  category: CategoryType;
+};
+
+export type CategoryType = {
+  _id: string;
+  name: string;
+};
+
+export type CardListProps = {
+  foods: FoodType[];
+};
+
 export const morningFoods = [
   {
     _id: "1",
