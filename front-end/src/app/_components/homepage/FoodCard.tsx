@@ -17,10 +17,11 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     padding: theme.spacing(1),
   },
 }));
-type Card = {
-  _id: string;
-  quantity: number;
-};
+
+// type Card = {
+//   _id: string;
+//   quantity: number;
+// };
 
 export const FoodCard = ({ image, name, price, ingredient }: FoodType) => {
   const [open, setOpen] = useState(false);
@@ -35,7 +36,11 @@ export const FoodCard = ({ image, name, price, ingredient }: FoodType) => {
   };
 
   const increment = () => setCount(count + 1);
-  const decrement = () => setCount(count - 1);
+  const decrement = () => {
+    if (count > 1) {
+      setCount(count - 1);
+    }
+  };
 
   const addCard = ({ image, name, price, ingredient }: FoodType) => {
     let insertItem = { image, name, price, ingredient };

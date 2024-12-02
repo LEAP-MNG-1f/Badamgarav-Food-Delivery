@@ -39,7 +39,7 @@ export const DessertPage = (props: CardListProps) => {
                   image={food.image}
                   name={food.name}
                   price={food.price}
-                  ingredient={food.ingredient}
+                  // ingeredient={food.ingeredient}
                 />
               );
             })}
