@@ -1,47 +1,69 @@
-import { Food } from "../model/food.js";
+import { Food } from "../model/foods.js";
 
-const createFood = async (request, response) => {
-  const result = await Food.create({
-    name: "dessert 8",
-    image:
-      " https://www.figma.com/design/VqYifDAzddKNk05lRmWEPe/Todo-App?node-id=3923-12323&m=dev",
-    ingredient: "Cocoa, Sugar, Butter, Flour, Eggs",
-    price: 18000,
-    categoryId: "674421b0bda2639d243e3cdf",
-  });
-
-  response.json({
-    success: true,
-    data: result,
-  });
-};
-const getAllFoods = async (request, response) => {
-  const result = await Food.find();
-
-  response.json({
-    success: true,
-    data: result,
-  });
-};
-const deleteFood = async (request, response) => {
-  const result = await Food.findByIdAndRemove({
-    _id: "",
-  });
-
-  response.json({
-    success: true,
-    data: result,
-  });
-};
-const updateFood = async (request, response) => {
-  const result = await Food.findByIdAndUpdate({
-    _id: "",
-  });
-
-  response.json({
-    success: true,
-    data: result,
-  });
+const createFood = async (req, response) => {
+  const { name, image, ingeredient, price, category } = req.body;
+  try {
+    const result = await Food.create({
+      name,
+      image,
+      ingeredient,
+      price,
+      category,
+    });
+    response.json({
+      succes: true,
+      data: result,
+    });
+  } catch (error) {
+    response.json({ error: "can't create food" });
+  }
 };
 
-export { getAllFoods, createFood, deleteFood, updateFood };
+const getAllFoods = async (req, response) => {
+  try {
+    const result = await Food.find().populate("category");
+
+    response.json({
+      succes: true,
+      data: result,
+    });
+  } catch (error) {
+    response.json({ error: "Can't get Food information" });
+  }
+};
+
+const updateFood = async (req, response) => {
+  try {
+    const { name, image, ingeredient, price, category } = req.body;
+    const foodId = req.params[`id`];
+    const result = await Food.findByIdAndUpdate(foodId, {
+      name,
+      image,
+      ingeredient,
+      price,
+      category,
+    });
+    response.json({
+      succes: true,
+      data: result,
+    });
+  } catch (error) {
+    response.json({ error: "Cant update food" });
+  }
+};
+
+const deleteFood = async (req, response) => {
+  try {
+    const Id = req.params[`id`];
+    const result = await Food.findByIdAndDelete(Id);
+    response.json({
+      succes: true,
+      data: result,
+    });
+  } catch (error) {
+    response.json({
+      error: error,
+    });
+  }
+};
+export { createFood, getAllFoods, updateFood, deleteFood };
