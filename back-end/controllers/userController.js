@@ -22,4 +22,12 @@ const getAllUser = async (request, response) => {
   });
 };
 
-export { getAllUser, createUser };
+const deleteUser = async (request, response) => {
+  const result = await User.findByIdAndDelete();
+  response.json({
+    success: true,
+    data: result,
+  });
+};
+
+export { getAllUser, createUser, deleteUser };

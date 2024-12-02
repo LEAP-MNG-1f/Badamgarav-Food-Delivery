@@ -1,41 +1,59 @@
 import { Category } from "../model/category.js";
-const createCategory = async (request, response) => {
-  const result = await Category.create({
-    name: "Dessert",
-  });
 
-  response.json({
-    success: true,
-    data: result,
-  });
-};
-const getAllCategory = async (request, response) => {
-  const result = await Category.find();
-
-  response.json({
-    success: true,
-    data: result,
-  });
-};
-const deleteCategory = async (request, response) => {
-  const result = await Category.findByIdAndRemove({
-    _id: "",
-  });
-
-  response.json({
-    success: true,
-    data: result,
-  });
-};
-const updateCategory = async (request, response) => {
-  const result = await Category.findByIdAndUpdate({
-    _id: "",
-  });
-
-  response.json({
-    success: true,
-    data: result,
-  });
+const createCategory = async (req, response) => {
+  const { name } = req.body;
+  try {
+    const result = await Category.create({
+      name,
+    });
+    response.json({
+      succes: true,
+      data: result,
+    });
+  } catch (error) {
+    console.log(error);
+    response.json({
+      error: error,
+    });
+  }
 };
 
-export { getAllCategory, createCategory, deleteCategory, updateCategory };
+const getAllCategory = async (req, response) => {
+  try {
+    const result = await Category.find();
+
+    response.json({
+      succes: true,
+      data: result,
+    });
+  } catch (error) {
+    response.json({
+      error: error,
+    });
+  }
+};
+
+const updateCategory = async (req, response) => {
+  try {
+    const { name } = req.body;
+    const Id = req.params["id"];
+    const result = await Category.findByIdAndUpdate(Id, {
+      name,
+    });
+    response.json({ succes: true, data: result });
+  } catch (error) {
+    response.json({ error: error });
+  }
+};
+
+const deleteCategory = async (req, response) => {
+  try {
+    const { name } = req.body;
+    const Id = req.params["id"];
+    const result = await Category.findByIdAndDelete(Id);
+    response.json({ succes: true, data: result });
+  } catch (error) {
+    response.json({ error: error });
+  }
+};
+export { createCategory, getAllCategory, updateCategory, deleteCategory };

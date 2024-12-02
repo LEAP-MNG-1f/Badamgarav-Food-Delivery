@@ -7,15 +7,21 @@ const foodSchema = new mongoose.Schema({
   },
   image: {
     type: String,
-  },
-  ingredient: {
-    type: String,
-  },
-  price: {
-    type: Number,
     required: true,
   },
-  categoryId: { type: mongoose.Schema.Types.ObjectId, ref: "Category" },
+  ingeredient: {
+    type: String,
+    required: true,
+  },
+  price: {
+    type: String,
+    required: true,
+  },
+  category: {
+    type: mongoose.SchemaTypes.ObjectId,
+    ref: "Category",
+    required: true,
+  },
 });
 
-export const Food = new mongoose.model("Food", foodSchema);
+export const Food = mongoose.model("Food", foodSchema);
