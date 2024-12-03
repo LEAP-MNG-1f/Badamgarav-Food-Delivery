@@ -7,7 +7,8 @@ import CloseIcon from "@mui/icons-material/Close";
 import { useState } from "react";
 import { MinusIcon } from "../svg/MinusIcon";
 import { AddIcon } from "../svg/AddIcon";
-import { FoodType } from "./foods/MorningFoods";
+import { FoodType } from "../types/types";
+import { useFoodContext } from "@/provider/Food";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -18,10 +19,21 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   },
 }));
 
-export const FoodCard = ({ image, name, price, ingredient }: FoodType) => {
+export const FoodCard = ({
+  _id,
+  image,
+  name,
+  price,
+  ingeredient,
+}: FoodType) => {
+  const { count, increment, decrement } = useFoodContext();
   const [open, setOpen] = useState(false);
-  const [count, setCount] = useState<number>(0);
+
   const [cards, setCards] = useState([]);
+
+  const value = useFoodContext();
+
+  console.log(value);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -30,15 +42,8 @@ export const FoodCard = ({ image, name, price, ingredient }: FoodType) => {
     setOpen(false);
   };
 
-  const increment = () => setCount(count + 1);
-  const decrement = () => {
-    if (count > 1) {
-      setCount(count - 1);
-    }
-  };
-
-  const addToCard = ({ image, name, price, ingredient }: FoodType) => {
-    let insertItem = { image, name, price, ingredient };
+  const addCard = ({ image, name, price, ingeredient }: FoodType) => {
+    let insertItem = { image, name, price, ingeredient };
     setCards((prev) => [...prev, insertItem]);
   };
 
@@ -46,7 +51,7 @@ export const FoodCard = ({ image, name, price, ingredient }: FoodType) => {
     event.preventDefault();
   };
 
-  console.log(cards);
+  // console.log(cards);
 
   return (
     <div>
@@ -103,7 +108,7 @@ export const FoodCard = ({ image, name, price, ingredient }: FoodType) => {
               <div className="flex flex-col gap-3">
                 <p className="text-[18px] font-[600] leading-[27px]">Орц</p>
                 <p className="text-[16px] font-[400] leading-[19.09px] bg-[#F6F6F6] p-2 rounded-lg">
-                  {ingredient}
+                  {ingeredient}
                 </p>
               </div>
 
@@ -123,7 +128,7 @@ export const FoodCard = ({ image, name, price, ingredient }: FoodType) => {
                   type="submit"
                   className="w-full h-[48px] bg-[#18BA51] py-2 px-4 text-[16px] font-[400] leading-[19.09px] rounded-[4px] text-white text-center"
                   onClick={() => {
-                    addToCard({ image, name, price, ingredient });
+                    addCard({ image, name, price, ingredient });
                   }}
                 >
                   Сагслах
