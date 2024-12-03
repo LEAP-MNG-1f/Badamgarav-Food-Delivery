@@ -1,9 +1,9 @@
-import { FoodType } from "../homepage/foods/MorningFoods";
 import { AddIcon } from "../svg/AddIcon";
 import { CloseIcon } from "../svg/CloseIcon";
 import { MinusIcon } from "../svg/MinusIcon";
+import { FoodType } from "../types/types";
 
-export const OrderCard = ({ image, name, ingredient, price }: FoodType) => {
+export const OrderCard = ({ image, name, ingeredient, price }: FoodType) => {
   return (
     <div className="w-[538px] h-[230px] p-6 ">
       <div className="flex gap-4 p-4 border-t border-t-[#D6D8DB] border-b border-b-[#D6D8DB]">
@@ -21,7 +21,7 @@ export const OrderCard = ({ image, name, ingredient, price }: FoodType) => {
             </button>
           </div>
           <p className="text-[16px] font-[400] leading-[19.09px] text-[#767676]">
-            {ingredient}
+            {ingeredient}
           </p>
           <div className="flex gap-2 items-center ">
             <MinusIcon />

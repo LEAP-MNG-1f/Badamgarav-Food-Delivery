@@ -5,6 +5,7 @@ import FormControl from "@mui/material/FormControl";
 import ListItemText from "@mui/material/ListItemText";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { LocationIcon } from "../svg/LocationIcon";
+import { useState } from "react";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -31,7 +32,7 @@ const names = [
 ];
 
 export default function Address() {
-  const [personName, setPersonName] = React.useState<string[]>([]);
+  const [personName, setPersonName] = useState<string[]>([]);
 
   const handleChange = (event: SelectChangeEvent<typeof personName>) => {
     const {

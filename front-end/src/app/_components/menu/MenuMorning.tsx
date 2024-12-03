@@ -1,8 +1,9 @@
 import Button from "@mui/material/Button";
 
 import { useState } from "react";
-import { CardListProps } from "../homepage/foods/MorningFoods";
+
 import { FoodCard } from "../homepage/FoodCard";
+import { CardListProps } from "../types/types";
 
 export default function MenuMorning({ foods }: CardListProps) {
   const [isClicked, setIsClicked] = useState(true);

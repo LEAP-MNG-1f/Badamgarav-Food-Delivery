@@ -1,5 +1,5 @@
-import { CardListProps } from "../homepage/foods/MorningFoods";
 import { BlueCircle } from "../svg/BlueCircle";
+import { CardListProps } from "../types/types";
 
 export const OrderConfirm = ({ foods }: CardListProps) => {
   return (
@@ -34,7 +34,7 @@ export const OrderConfirm = ({ foods }: CardListProps) => {
                 </div>
 
                 <p className="text-[16px] font-[400] leading-[19.09px] text-[#767676]">
-                  {food.ingredient}
+                  {food.ingeredient}
                 </p>
               </div>
             </div>

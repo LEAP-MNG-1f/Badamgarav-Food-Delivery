@@ -18,11 +18,6 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   },
 }));
 
-// type Card = {
-//   _id: string;
-//   quantity: number;
-// };
-
 export const FoodCard = ({ image, name, price, ingredient }: FoodType) => {
   const [open, setOpen] = useState(false);
   const [count, setCount] = useState<number>(0);
@@ -42,20 +37,16 @@ export const FoodCard = ({ image, name, price, ingredient }: FoodType) => {
     }
   };
 
-  const addCard = ({ image, name, price, ingredient }: FoodType) => {
+  const addToCard = ({ image, name, price, ingredient }: FoodType) => {
     let insertItem = { image, name, price, ingredient };
     setCards((prev) => [...prev, insertItem]);
   };
-
-  // console.log(cards);
-
-  const [username, setUsername] = useState<string>("");
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
   };
 
-  // console.log(cards);
+  console.log(cards);
 
   return (
     <div>
@@ -127,23 +118,12 @@ export const FoodCard = ({ image, name, price, ingredient }: FoodType) => {
                   <AddIcon />
                 </button>
               </div>
-              {/* <form onSubmit={handleSubmit}>
-                <input
-                  type="text"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  placeholder="Enter your name"
-                  required
-                />
-                <button type="submit">Submit</button>
-              </form> */}
-
               <form onSubmit={handleSubmit}>
                 <button
                   type="submit"
                   className="w-full h-[48px] bg-[#18BA51] py-2 px-4 text-[16px] font-[400] leading-[19.09px] rounded-[4px] text-white text-center"
                   onClick={() => {
-                    addCard({ image, name, price, ingredient });
+                    addToCard({ image, name, price, ingredient });
                   }}
                 >
                   Сагслах
