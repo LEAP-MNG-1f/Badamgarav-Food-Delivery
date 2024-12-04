@@ -1,14 +1,7 @@
 import { NextIcon } from "../../svg/Next";
 import { PlusIcon } from "../../svg/PlusIcon";
+import { FoodType } from "../../types/types";
 import { FoodCard } from "../FoodCard";
-
-export type FoodType = {
-  _id?: string;
-  name: string;
-  image?: string;
-  ingredient?: string;
-  price: number;
-};
 
 export type CardListProps = {
   foods: FoodType[];
@@ -35,11 +28,12 @@ export const AllFoodsPage = (props: CardListProps) => {
             {props.foods.map((food) => {
               return (
                 <FoodCard
-                  key={food._id}
+                  _id={food._id}
                   image={food.image}
                   name={food.name}
                   price={food.price}
-                  ingredient={food.ingredient}
+                  ingeredient={food.ingeredient}
+                  category={food.category}
                 />
               );
             })}

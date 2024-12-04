@@ -79,7 +79,7 @@ export const FoodProvider: React.FC<{ children: ReactNode }> = ({
     _id: string,
     image: string,
     name: string,
-    ingredient: string,
+    ingeredient: string,
     price: string,
     count: number
   ) => {
@@ -87,7 +87,7 @@ export const FoodProvider: React.FC<{ children: ReactNode }> = ({
       _id,
       image,
       name,
-      ingredient,
+      ingeredient,
       price,
       count,
       quantity: 1,

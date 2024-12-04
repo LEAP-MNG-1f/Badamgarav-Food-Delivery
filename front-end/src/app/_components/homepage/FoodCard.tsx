@@ -3,7 +3,6 @@ import { styled } from "@mui/material/styles";
 import Dialog from "@mui/material/Dialog";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
-
 import { useState } from "react";
 import { MinusIcon } from "../svg/MinusIcon";
 import { AddIcon } from "../svg/AddIcon";
@@ -25,6 +24,7 @@ export const FoodCard = ({
   name,
   price,
   ingeredient,
+  category,
 }: FoodType) => {
   const { count, increment, decrement, addToCart } = useFoodContext();
   const [open, setOpen] = useState(false);

@@ -81,20 +81,6 @@ export default function RightDrawer() {
                 );
               })}
             </div>
-
-            {/* <div className="flex w-[538px] h-[182px]">
-              {foods.map((food) => {
-                return (
-                  <OrderCard
-                    key={food._id}
-                    image={food.image}
-                    price={food.price}
-                    name={food.name}
-                    ingeredient={food.ingredient}
-                  />
-                );
-              })}
-            </div> */}
             <div className="w-[586px] h-[172px] px-[8] py-[30px] flex justify-center mt-[747px] gap-[10px]  border-t border-t-[#BBBECD33]">
               <div className="w-[256px] flex flex-col">
                 <p className="text-[18px] font-[400] leading-[27px] text-[#5E6166]">
