@@ -3,15 +3,10 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
-
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
-
-import { BoxIcon } from "../svg/Box";
 import { LogoIcon } from "../svg/Logo";
 import Link from "next/link";
 import RightDrawer from "../order/RightDrawer";
-import { menuFoods } from "../types/types";
-import { CardListProps } from "../homepage/foods/MorningFoods";
 
 function Header() {
   const preventDefault = (event: React.SyntheticEvent) =>
@@ -31,10 +26,11 @@ function Header() {
               }}
               onClick={preventDefault}
             >
-              <Link href="./">
-                <Button className="!text-[14px] !leading-[16px] !font-[700] !text-black !px-4 !py-2">
-                  Нүүр
-                </Button>
+              <Link
+                href="./"
+                className="!text-[14px] !leading-[16px] !font-[700] !text-black !px-4 !py-2"
+              >
+                Нүүр
               </Link>
             </Box>
 
@@ -47,10 +43,11 @@ function Header() {
               }}
               onClick={preventDefault}
             >
-              <Link href="./menupage">
-                <Button className="!text-[14px] !leading-[16px] !font-[700] !text-black !px-4 !py-2">
-                  Хоолны цэс
-                </Button>
+              <Link
+                href="./menupage"
+                className="!text-[14px] !leading-[16px] !font-[700] !text-black !px-4 !py-2"
+              >
+                Хоолны цэс
               </Link>
             </Box>
 
@@ -63,19 +60,19 @@ function Header() {
               }}
               onClick={preventDefault}
             >
-              <Link href="./delivery">
-                <Button className="!text-[14px] !leading-[16px] !font-[700] !text-black !px-4 !py-2">
-                  Хүргэлтийн бүс
-                </Button>
+              <Link
+                href="./delivery"
+                className="!text-[14px] !leading-[16px] !font-[700] !text-black !px-4 !py-2"
+              >
+                Хүргэлтийн бүс
               </Link>
             </Box>
           </div>
         </div>
         <div className="!flex !gap-2">
-          <Button className="!flex !gap-[8px] !justify-center !items-center !px-4 !py-2">
-            <BoxIcon />
-            <RightDrawer foods={menuFoods} />
-          </Button>
+          <div className="!flex !gap-[8px] !justify-center !items-center !px-4 !py-2">
+            <RightDrawer />
+          </div>
           <Button className="!flex !gap-[8px] !justify-center !items-center !px-4 !py-2">
             <PermIdentityIcon sx={{ color: "text.primary" }} />
             <Typography className="!text-[14px] !leading-[20px] !font-[700] !text-black !text-align">

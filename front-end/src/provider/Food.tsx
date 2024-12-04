@@ -17,10 +17,14 @@ interface FoodContextType {
   foods: FoodType[];
   category: CategoryType[];
   count: number;
+  totalPrice: number;
   cartFoods: CartItemsType[];
   setFoods: React.Dispatch<React.SetStateAction<any[]>>;
+  setCategories: React.Dispatch<React.SetStateAction<CategoryType[]>>;
   setCartFoods: React.Dispatch<React.SetStateAction<CartItemsType[]>>;
+  setTotalPrice: React.Dispatch<React.SetStateAction<number | undefined>>;
   fetchFoods: () => Promise<void>;
+  fetchCategories: () => Promise<void>;
   increment: () => void;
   decrement: () => void;
   addToCart: (
@@ -31,6 +35,7 @@ interface FoodContextType {
     price: string,
     count: number
   ) => void;
+  calculateTotal: () => void;
 }
 // Create the context
 const FoodContext = createContext<FoodContextType | undefined>(undefined);
@@ -40,7 +45,7 @@ export const FoodProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
   const [foods, setFoods] = useState<any[]>([]);
-  const [categories, setCategories] = useState<any[]>([]);
+  const [category, setCategories] = useState<any[]>([]);
   const [count, setCount] = useState(1);
   const [cartFoods, setCartFoods] = useState<CartItemsType[]>([]);
 
@@ -115,10 +120,23 @@ export const FoodProvider: React.FC<{ children: ReactNode }> = ({
     }
   };
 
+  const [totalPrice, setTotalPrice] = useState<number>();
+
+  const calculateTotal = () => {
+    const total = cartFoods.reduce((acc, current) => {
+      return acc + Number(current.price) * current.count!;
+    }, 0);
+    setTotalPrice(total);
+  };
+
   useEffect(() => {
     fetchFoods();
     fetchCategories();
   }, []);
+
+  useEffect(() => {
+    calculateTotal();
+  }, [cartFoods]);
 
   // Context value
   const contextValue = {
@@ -131,6 +149,9 @@ export const FoodProvider: React.FC<{ children: ReactNode }> = ({
     increment,
     decrement,
     cartFoods,
+    totalPrice,
+    setTotalPrice,
+    calculateTotal,
   };
 
   return (

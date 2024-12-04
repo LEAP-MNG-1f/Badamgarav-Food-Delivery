@@ -1,35 +1,74 @@
-import { AddIcon } from "../svg/AddIcon";
-import { CloseIcon } from "../svg/CloseIcon";
-import { MinusIcon } from "../svg/MinusIcon";
-import { FoodType } from "../types/types";
+import * as React from "react";
+import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import Link from "next/link";
+import { useFoodContext } from "@/provider/Food";
 
-export const OrderCard = ({ image, name, ingeredient, price }: FoodType) => {
+export default function OrderButton({
+  open,
+  setOpen,
+}: {
+  open: boolean;
+  setOpen: (_value: boolean) => void;
+}) {
+  const handleClose = () => {
+    setOpen(false);
+    setCartFoods([]);
+  };
+
+  const { setCartFoods } = useFoodContext();
+
   return (
-    <div className="w-[538px] h-[230px] p-6 ">
-      <div className="flex gap-4 p-4 border-t border-t-[#D6D8DB] border-b border-b-[#D6D8DB]">
-        <img className="w-[245px]" src={image} alt="" />
-        <div className="flex flex-col gap-4">
-          <div className="flex justify-between items-center">
-            <div className="flex flex-col gap-[2px]">
-              <p className="text-[18px] font-[600] leading-[27px]">{name}</p>
-              <p className="text-[18px] font-[600] leading-[27px] text-[#18BA51]">
-                {price}₮
-              </p>
-            </div>
-            <button>
-              <CloseIcon />
-            </button>
-          </div>
-          <p className="text-[16px] font-[400] leading-[19.09px] text-[#767676]">
-            {ingeredient}
-          </p>
-          <div className="flex gap-2 items-center ">
-            <MinusIcon />
-            <p className="w-[45px] text-center">Тоо</p>
-            <AddIcon />
-          </div>
-        </div>
-      </div>
+    <div>
+      <Button
+        className="!w-[187px] !h-[48px] !rounded-1 !text-[16px] !font-[400] !leading-[19.09px] !px-4 !py-2 !flex !justify-center !items-center !border-none "
+        type="submit"
+        variant="outlined"
+        sx={{
+          backgroundColor: "#EEEFF2",
+          color: "#1C20243D",
+          "&:hover": {
+            backgroundColor: "#18BA51",
+            color: "white",
+          },
+        }}
+      >
+        Захиалах
+      </Button>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+        sx={{
+          "& .MuiDialog-paper": {
+            borderRadius: "16px",
+            width: 681,
+            height: 200,
+          },
+        }}
+      >
+        <DialogContent>
+          <DialogContentText
+            id="alert-dialog-description"
+            className="!text-[25px] !font-[500]  "
+          >
+            Захиалга амжилттай боллоо.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Link
+            href={"./"}
+            onClick={handleClose}
+            className="text-[15px] font-[700] rounded-[12px] bg-[#18BA51] px-5 py-3 text-white"
+          >
+            Нүүр хуудас руу буцах
+          </Link>
+        </DialogActions>
+      </Dialog>
     </div>
   );
-};
+}

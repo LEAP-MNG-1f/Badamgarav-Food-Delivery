@@ -1,6 +1,6 @@
 "use client";
 import { API_URL } from "@/constant/constant";
-
+import { useRouter } from "next/navigation";
 import {
   createContext,
   ReactNode,
@@ -8,24 +8,6 @@ import {
   useEffect,
   useState,
 } from "react";
-
-export type FoodType = {
-  _id: string;
-  image?: string;
-  ingeredient?: string;
-  name: string;
-  price: number;
-  category: CategoryType;
-};
-
-export type CategoryType = {
-  _id: string;
-  name: string;
-};
-
-export type CardListProps = {
-  foods: FoodType[];
-};
 
 type TFoodsId = {
   _id: string;
@@ -63,6 +45,7 @@ type TOrderContext = {
   orders: TOrder[];
   setOrders: React.Dispatch<React.SetStateAction<TOrder[]>>;
   fetchOrders: () => void;
+  isUser: () => void;
 };
 
 const OrderContext = createContext<TOrderContext | undefined>(undefined);
@@ -71,6 +54,15 @@ export const OrderProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
   const [orders, setOrders] = useState<any[]>([]);
+  const router = useRouter();
+
+  const isUser = () => {
+    const role = localStorage.getItem("userRole");
+    if (role) {
+      localStorage.clear();
+      router.push("./");
+    }
+  };
 
   const fetchOrders = async () => {
     try {
@@ -90,6 +82,7 @@ export const OrderProvider: React.FC<{ children: ReactNode }> = ({
     orders,
     setOrders,
     fetchOrders,
+    isUser,
   };
 
   return (

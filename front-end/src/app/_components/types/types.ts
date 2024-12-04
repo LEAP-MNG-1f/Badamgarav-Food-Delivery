@@ -16,18 +16,26 @@ export type CardListProps = {
   foods: FoodType[];
 };
 
-// export type TFoodCardProps = {
-//   cards: string;
-//   addToCard: () => void;
-// };
-
 export type CartItemsType = {
   _id: string;
   name: string;
   image: string;
-  ingredient: string;
+  ingeredient: string;
   price: string;
-  count?: number;
+  count: number;
+};
+
+export type TOrderedFood = {
+  userId: string;
+  orderNumber: number;
+  foodIds: string[];
+  totalPrice: string;
+  district: string;
+  khoroo: string;
+  apartment: string;
+  phoneNumber: string;
+  information: string;
+  paymentType: string;
 };
 
 export const menuFoods = [

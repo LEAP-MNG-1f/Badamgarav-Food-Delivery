@@ -1,14 +1,6 @@
 import { NextIcon } from "../../svg/Next";
 import { PlusIcon } from "../../svg/PlusIcon";
-import { FoodCard } from "../FoodCard";
-
-export type FoodType = {
-  _id?: string;
-  name: string;
-  image?: string;
-  ingredient?: string;
-  price: number;
-};
+import { FoodType } from "../../types/types";
 
 export type CardListProps = {
   foods: FoodType[];
@@ -31,19 +23,6 @@ export const AllFoodsPage = (props: CardListProps) => {
               <NextIcon />
             </button>
           </div>
-          {/* <div className="flex justify-between">
-            {props.foods.map((food) => {
-              return (
-                <FoodCard
-                  // key={food._id}
-                  // image={food.image}
-                  // name={food.name}
-                  // price={food.price}
-                  // ingredient={food.ingredient}
-                />
-              );
-            })}
-          </div> */}
         </div>
       </div>
     </div>

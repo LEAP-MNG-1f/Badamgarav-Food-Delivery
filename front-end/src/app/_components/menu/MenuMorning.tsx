@@ -63,6 +63,7 @@ export default function MenuMorning({ foods }: CardListProps) {
             {foods.map((food) => {
               return (
                 <FoodCard
+                  key={food._id}
                   _id={food._id}
                   image={food.image}
                   name={food.name}

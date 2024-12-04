@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { FoodContext, FoodProvider } from "@/provider/Food";
-import { FoodCard } from "./_components/homepage/FoodCard";
+import { FoodProvider } from "@/provider/Food";
+import { OrderProvider } from "@/provider/Order";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -23,7 +23,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <FoodProvider> {children}</FoodProvider>
+        <FoodProvider>
+          <OrderProvider>{children}</OrderProvider>
+        </FoodProvider>
       </body>
     </html>
   );
