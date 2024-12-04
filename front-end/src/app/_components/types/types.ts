@@ -1,9 +1,9 @@
 export type FoodType = {
   _id: string;
-  image?: string;
-  ingeredient?: string;
+  image: string;
+  ingeredient: string;
   name: string;
-  price: number;
+  price: string;
   category: CategoryType;
 };
 
@@ -16,9 +16,18 @@ export type CardListProps = {
   foods: FoodType[];
 };
 
-export type TFoodCardProps = {
-  cards: string;
-  addToCard: () => void;
+// export type TFoodCardProps = {
+//   cards: string;
+//   addToCard: () => void;
+// };
+
+export type CartItemsType = {
+  _id: string;
+  name: string;
+  image: string;
+  ingredient: string;
+  price: string;
+  count?: number;
 };
 
 export const menuFoods = [

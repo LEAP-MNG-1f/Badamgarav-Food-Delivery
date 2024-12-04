@@ -23,7 +23,7 @@ export const FoodCardComponent = () => {
   // console.log(foods);
 
   const groupedData = groupBy(foods, (food) => food?.category.name);
-  console.log(groupedData);
+  // console.log(groupedData);
 
   useEffect(() => {
     fetchAlldata();
