@@ -25,6 +25,7 @@ export const FoodCard = ({
   name,
   price,
   ingeredient,
+  category,
 }: FoodType) => {
   const { count, increment, decrement, addToCart } = useFoodContext();
   const [open, setOpen] = useState(false);

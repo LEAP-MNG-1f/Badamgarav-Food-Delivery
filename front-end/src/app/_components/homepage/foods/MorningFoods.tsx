@@ -51,10 +51,12 @@ export const FoodCardComponent = () => {
                   return (
                     <div key={food._id}>
                       <FoodCard
+                        _id={food._id}
                         image={food.image}
                         name={food.name}
                         price={food.price}
-                        ingredient={food.ingeredient}
+                        ingeredient={food.ingeredient}
+                        category={food.category}
                       />
                     </div>
                   );
