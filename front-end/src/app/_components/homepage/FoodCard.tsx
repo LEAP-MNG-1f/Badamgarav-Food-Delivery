@@ -26,14 +26,12 @@ export const FoodCard = ({
   price,
   ingeredient,
 }: FoodType) => {
-  const { count, increment, decrement } = useFoodContext();
+  const { count, increment, decrement, addToCart } = useFoodContext();
   const [open, setOpen] = useState(false);
-
-  const [cards, setCards] = useState([]);
 
   const value = useFoodContext();
 
-  console.log(value);
+  // console.log(value);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -42,16 +40,14 @@ export const FoodCard = ({
     setOpen(false);
   };
 
-  const addCard = ({ image, name, price, ingeredient }: FoodType) => {
-    let insertItem = { image, name, price, ingeredient };
-    setCards((prev) => [...prev, insertItem]);
+  const handleAddToCart = () => {
+    addToCart(_id, image, name, ingeredient, price, count);
+    setOpen(false);
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
   };
-
-  // console.log(cards);
 
   return (
     <div>
@@ -127,9 +123,7 @@ export const FoodCard = ({
                 <button
                   type="submit"
                   className="w-full h-[48px] bg-[#18BA51] py-2 px-4 text-[16px] font-[400] leading-[19.09px] rounded-[4px] text-white text-center"
-                  onClick={() => {
-                    addCard({ image, name, price, ingredient });
-                  }}
+                  onClick={handleAddToCart}
                 >
                   Сагслах
                 </button>
