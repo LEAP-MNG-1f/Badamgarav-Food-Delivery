@@ -31,19 +31,19 @@ export const AllFoodsPage = (props: CardListProps) => {
               <NextIcon />
             </button>
           </div>
-          <div className="flex justify-between">
+          {/* <div className="flex justify-between">
             {props.foods.map((food) => {
               return (
                 <FoodCard
-                  key={food._id}
-                  image={food.image}
-                  name={food.name}
-                  price={food.price}
-                  ingredient={food.ingredient}
+                  // key={food._id}
+                  // image={food.image}
+                  // name={food.name}
+                  // price={food.price}
+                  // ingredient={food.ingredient}
                 />
               );
             })}
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
