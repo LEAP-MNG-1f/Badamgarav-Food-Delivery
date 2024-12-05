@@ -1,6 +1,12 @@
 import mongoose from "mongoose";
 
-//Schema uusgeh
+const processEnum = {
+  values: ["Progress", "Delivered", "Waiting", "Active"],
+};
+
+const paymentEnum = {
+  values: ["Card", "Cash"],
+};
 
 const orderSchema = new mongoose.Schema({
   userId: {
@@ -25,10 +31,11 @@ const orderSchema = new mongoose.Schema({
   },
   process: {
     type: String,
-    enum: ["inProgress", "active", "delivered", "waiting"],
-    default: "active",
+    enum: processEnum,
+    default: "Progress",
+    required: true,
   },
-  createdDate: {
+  createdAt: {
     type: Date,
     default: () => Date.now(),
     immutable: true,
@@ -45,18 +52,18 @@ const orderSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  information: {
+  phoneNumber: {
     type: String,
     required: true,
   },
-  phoneNumber: {
+  information: {
     type: String,
     required: true,
   },
   paymentType: {
     type: String,
-    enum: ["card", "cash"],
+    enum: paymentEnum,
   },
 });
 
-export const Order = mongoose.model("Order", orderSchema); //Model uusgej bna Order ni model name
+export const Order = mongoose.model("Order", orderSchema);

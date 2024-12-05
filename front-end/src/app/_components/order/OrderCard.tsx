@@ -21,6 +21,8 @@ export default function OrderButton({
 
   const { setCartFoods } = useFoodContext();
 
+  // console.log(setCartFoods);
+
   return (
     <div>
       <Button

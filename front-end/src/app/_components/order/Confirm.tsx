@@ -21,7 +21,7 @@ export const OrderConfirmation = () => {
 
   const formik = useFormik<TOrderedFood>({
     initialValues: {
-      userId: "6746889a0ea3d9b556864cdf",
+      userId: "",
       orderNumber: Math.floor(Math.random() * 10),
       foodIds: foodsIdArray,
       totalPrice: "",
@@ -38,7 +38,7 @@ export const OrderConfirmation = () => {
         ...values,
         totalPrice: totalPrice?.toString(),
       };
-
+      console.log(values);
       try {
         const response = await fetch(`${API_URL}/api/orders`, {
           method: "POST",

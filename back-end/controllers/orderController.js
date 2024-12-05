@@ -1,20 +1,21 @@
 import { Order } from "../model/order.js";
 
-const createOrder = async (req, response) => {
-  const {
-    userId,
-    orderNumber,
-    foodIds,
-    totalPrice,
-    district,
-    khoroo,
-    apartment,
-    information,
-    phoneNumber,
-    paymentType,
-  } = req.body;
-  // console.log(req.body);
+const createOrder = async (request, response) => {
   try {
+    const {
+      userId,
+      orderNumber,
+      foodIds,
+      totalPrice,
+      district,
+      khoroo,
+      apartment,
+      phoneNumber,
+      information,
+      paymentType,
+    } = request.body;
+    console.log(request.body);
+
     const result = await Order.create({
       userId: userId,
       orderNumber: orderNumber,
@@ -27,24 +28,54 @@ const createOrder = async (req, response) => {
       phoneNumber: phoneNumber,
       paymentType: paymentType,
     });
-    console.log(result);
 
     response.json({
-      succes: true,
+      success: true,
       data: result,
     });
   } catch (error) {
-    response.json({ error: "error can't create order" });
+    response.json({ success: false });
+  }
+};
+const getAllOrders = async (request, response) => {
+  try {
+    const result = await Order.find().populate("userId").populate("foodIds");
+
+    response.json({
+      success: true,
+      data: result,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+const deleteOrder = async (request, response) => {
+  try {
+    const result = await Order.findByIdAndRemove({
+      _id: "",
+    });
+
+    response.json({
+      success: Food,
+      data: result,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+const updateOrder = async (request, response) => {
+  try {
+    const result = await Order.findByIdAndUpdate({
+      _id: "",
+    });
+
+    response.json({
+      success: true,
+      data: result,
+    });
+  } catch (error) {
+    console.log(error);
   }
 };
 
-const getAllOrders = async (req, response) => {
-  const result = await Order.find().populate("userId").populate("foodIds");
-
-  response.json({
-    succes: true,
-    data: result,
-  });
-};
-
-export { getAllOrders, createOrder };
+export { getAllOrders, createOrder, deleteOrder, updateOrder };
