@@ -45,6 +45,18 @@ const orderSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  information: {
+    type: String,
+    required: true,
+  },
+  phoneNumber: {
+    type: String,
+    required: true,
+  },
+  paymentType: {
+    type: String,
+    enum: ["card", "cash"],
+  },
 });
 
 export const Order = mongoose.model("Order", orderSchema); //Model uusgej bna Order ni model name

@@ -9,17 +9,26 @@ const createOrder = async (req, response) => {
     district,
     khoroo,
     apartment,
+    information,
+    phoneNumber,
+    paymentType,
   } = req.body;
+  // console.log(req.body);
   try {
     const result = await Order.create({
-      userId,
-      orderNumber,
-      foodIds,
-      totalPrice,
-      district,
-      khoroo,
-      apartment,
+      userId: userId,
+      orderNumber: orderNumber,
+      foodIds: foodIds,
+      totalPrice: totalPrice,
+      district: district,
+      khoroo: khoroo,
+      apartment: apartment,
+      information: information,
+      phoneNumber: phoneNumber,
+      paymentType: paymentType,
     });
+    console.log(result);
+
     response.json({
       succes: true,
       data: result,

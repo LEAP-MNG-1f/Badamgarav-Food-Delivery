@@ -5,7 +5,7 @@ import Header from "@/app/_components/ui/Header";
 export const DeliveryAreaPage = () => {
   return (
     <div>
-      {/* <Header /> */}
+      <Header />
       <DeliveryArea />
       <Footer />
     </div>

@@ -17,7 +17,7 @@ interface FoodContextType {
   foods: FoodType[];
   category: CategoryType[];
   count: number;
-  totalPrice: number;
+  totalPrice: number | undefined;
   cartFoods: CartItemsType[];
   setFoods: React.Dispatch<React.SetStateAction<any[]>>;
   setCategories: React.Dispatch<React.SetStateAction<CategoryType[]>>;
@@ -152,6 +152,10 @@ export const FoodProvider: React.FC<{ children: ReactNode }> = ({
     totalPrice,
     setTotalPrice,
     calculateTotal,
+    setCategories,
+    category,
+    setCartFoods,
+    fetchCategories,
   };
 
   return (

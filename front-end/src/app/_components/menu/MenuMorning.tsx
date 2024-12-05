@@ -3,9 +3,9 @@ import Button from "@mui/material/Button";
 import { useState } from "react";
 
 import { FoodCard } from "../homepage/FoodCard";
-import { CardListProps } from "../types/types";
+import { MenuCardListProps } from "../types/types";
 
-export default function MenuMorning({ foods }: CardListProps) {
+export default function MenuMorning({ meFoods }: MenuCardListProps) {
   const [isClicked, setIsClicked] = useState(true);
   const [clicked, setClicked] = useState(false);
 
@@ -60,7 +60,7 @@ export default function MenuMorning({ foods }: CardListProps) {
         </div>
         <div className="flex flex-col mt-[80px] gap-[60px]">
           <div className="flex justify-between flex-wrap">
-            {foods.map((food) => {
+            {meFoods.map((food) => {
               return (
                 <FoodCard
                   key={food._id}

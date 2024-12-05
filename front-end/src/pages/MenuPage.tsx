@@ -10,7 +10,7 @@ export default function MenuPage() {
   return (
     <>
       <Header />
-      <MenuMorning foods={menuFoods} />
+      <MenuMorning meFoods={menuFoods} />
       <Footer />
     </>
   );
